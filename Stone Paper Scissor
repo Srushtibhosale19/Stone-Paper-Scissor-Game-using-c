@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+char you,comp;
+int result;
+int game(char you,char comp);
+
+int main()
+{
+int upper =150,lower=1;
+srand(time(NULL));
+int num =rand()%((upper-lower+1)+lower);
+
+  if(num<50)
+    {
+     comp='p';
+    }
+ else if(num<100)
+    {
+     comp='i';
+    }
+ else
+    {
+    comp='s';
+    }
+
+printf("\t\t<<WELCOME TO>> \n ***** STONE PAPER SCISSOR GAME *****\n\n");
+printf(" Enter s for stone,p for paper, i for scissor\n");
+printf(" Enter your choice:");
+scanf("%c",&you);
+
+int result=game(you,comp);
+printf("Your choice is %c and computer choice is %c\n",you,comp);
+
+if(result==0)
+{
+  printf("Match Draw\n");
+}
+else if (result== 1)
+{
+  printf("**You are WINNER**\n");
+}
+else
+{
+  printf("You Loose\n");
+}
+return 0;
+}
+
+int game(char you,char comp)
+{
+    if(you == comp)
+        {
+        return 0;
+        }
+    else
+     {
+         if(you=='s'&&comp=='p')
+           {
+            return -1;
+           }
+        else if(you=='p'&&comp=='s')
+            {
+             return 1;
+            }
+        if(you=='p'&&comp=='i')
+            {
+             return -1;
+            }
+        else if(you=='i'&&comp=='p')
+            {
+             return 1;
+            }
+        if(you=='s'&&comp=='i')
+            {
+             return 1;
+            }
+        else if(you=='i'&&comp=='s')
+            {
+             return -1;
+            }
+     }
+
+}
+
+
+
